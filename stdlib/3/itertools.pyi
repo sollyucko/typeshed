@@ -60,6 +60,8 @@ _T5 = TypeVar('_T5')
 _T6 = TypeVar('_T6')
 
 @overload
+def product(repeat: int = ...) -> Iterator[NoReturn]: ...
+@overload
 def product(iter1: Iterable[_T1]) -> Iterator[Tuple[_T1]]: ...
 @overload
 def product(iter1: Iterable[_T1],
@@ -95,6 +97,8 @@ def product(iter1: Iterable[Any],
             iter6: Iterable[Any],
             iter7: Iterable[Any],
             *iterables: Iterable[Any]) -> Iterator[Tuple[Any, ...]]: ...
+@overload
+def product(iter1: Iterable[_T], repeat: int) -> Iterator[Tuple[_T, ...]]: ...
 @overload
 def product(*iterables: Iterable[Any], repeat: int = ...) -> Iterator[Tuple[Any, ...]]: ...
 
